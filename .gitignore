@@ -1,0 +1,34 @@
+.claude/
+Context.md
+CRITICAL_TASKS.md
+DEPLOYMENT_GUIDE.md
+FEATURE_COMPLETION_MATRIX.md
+IMPLEMENTATION_SUMMARY.md
+Emails.md
+pdf_extract.txt
+Development Team.jpg
+Iteration 4- UCs.png
+Iteration 5.1-UCs.png
+Iteration 5.2-UCs.png
+Iteration 6-UCs.png
+Smith's Tutoring Advert.jpeg
+DOWLOAD ERROR.png
+tutorconnect-frontend/src/app/components/booking/
+tutorconnect-frontend/src/app/components/booking-slots/
+tutorconnect-frontend/src/app/components/calendar/
+tutorconnect-frontend/src/app/components/reviews/
+tutorconnect-frontend/src/app/components/reports/
+tutorconnect-frontend/src/app/components/announcements/
+tutorconnect-frontend/src/app/components/admin-audit/
+tutorconnect-frontend/src/app/components/module-wishlist/
+tutorconnect-frontend/src/app/components/admin-media/
+tutorconnect-frontend/src/app/components/media-viewer/
+tutorconnect-frontend/dist/
+tutorconnect-frontend/.angular/
+TutorConnect.API/bin/
+TutorConnect.API/obj/
+TutorConnect.API/.vs/
+TutorConnect.API/uploads/
+TutorConnect.API/wwwroot/
+TutorConnect.API/google-credentials.json.json
+TutorConnect.API/TutorConnect.API.csproj.user
