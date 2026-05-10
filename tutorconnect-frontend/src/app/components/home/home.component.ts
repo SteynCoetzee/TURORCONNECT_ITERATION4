@@ -19,6 +19,8 @@ export class HomeComponent implements OnInit {
   userName = '';
   role = '';
   modules: Module[] = [];
+  announcements: any[] = [];
+  recentAnnouncements: any[] = [];
   mediaItems: MediaContent[] = [];
   testimonials: Testimonial[] = [];
 
