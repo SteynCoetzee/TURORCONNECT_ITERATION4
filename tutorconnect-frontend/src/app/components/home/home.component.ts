@@ -3,9 +3,7 @@ import { CommonModule, DatePipe, NgClass } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../services/auth.service';
-import { ModuleService } from '../../services/module.service';
-import { AnnouncementService } from '../../services/announcement.service';
-import { Module, Announcement, Testimonial } from '../../models/models';
+import { Module, Testimonial } from '../../models/models';
 import { environment } from '../../../environments/environment';
 
 interface MediaContent { media_ID: number; media_Name: string; media_Address: string; }
@@ -21,8 +19,8 @@ export class HomeComponent implements OnInit {
   userName = '';
   role = '';
   modules: Module[] = [];
-  announcements: Announcement[] = [];
-  recentAnnouncements: Announcement[] = [];
+  announcements: any[] = [];
+  recentAnnouncements: any[] = [];
   mediaItems: MediaContent[] = [];
   testimonials: Testimonial[] = [];
 
@@ -30,8 +28,6 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private moduleService: ModuleService,
-    private announcementService: AnnouncementService,
     private http: HttpClient
   ) {}
 
@@ -39,21 +35,14 @@ export class HomeComponent implements OnInit {
     this.userName = this.authService.getCurrentUserName();
     this.role = this.authService.getCurrentUserRole();
 
-    this.moduleService.getModules().subscribe({ next: (data) => { this.modules = data; }, error: () => {} });
-    this.announcementService.getAnnouncements().subscribe({
-      next: (data) => {
-        this.announcements = data;
-        this.recentAnnouncements = data.slice(0, 3);
-      },
-      error: () => {}
+    this.http.get<Module[]>(`${this.apiUrl}/Modules`).subscribe({
+      next: (data: Module[]) => { this.modules = data; }, error: () => {}
     });
     this.http.get<MediaContent[]>(`${this.apiUrl}/AdminContent/media`).subscribe({
-      next: (data) => { this.mediaItems = data; },
-      error: () => {}
+      next: (data: MediaContent[]) => { this.mediaItems = data; }, error: () => {}
     });
     this.http.get<Testimonial[]>(`${this.apiUrl}/Testimonials/approved`).subscribe({
-      next: (data) => { this.testimonials = data.slice(0, 4); },
-      error: () => {}
+      next: (data: Testimonial[]) => { this.testimonials = data.slice(0, 4); }, error: () => {}
     });
   }
 
